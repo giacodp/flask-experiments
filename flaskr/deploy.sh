@@ -1,0 +1,1 @@
+echo "Bitbucket Repo: $1 , GitHub Repo: $2 , Bitbucket Branch: $3" > /home/giacomo/Documenti/temp/output.txt
