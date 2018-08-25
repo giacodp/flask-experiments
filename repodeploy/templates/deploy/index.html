@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}From Bitbucket to GitHub{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="bitbucket-repository">Bitbucket Repository</label>
+    <input name="bitbucket-repository" id="bitbucket-repository" required>
+    <label for="github-repository">GitHub Repository</label>
+    <input name="github-repository" id="github-repository" required>
+    <label for="bitbucket-branch">Bitbucket Branch (default: master)</label>
+    <input name="bitbucket-branch" id="bitbucket-branch">
+    <input type="submit" value="Done" onclick="return confirm('Are you sure? \nCheck your input on the left.');">
+  </form>
+{% endblock %}

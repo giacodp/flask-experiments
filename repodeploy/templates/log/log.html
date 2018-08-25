@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Log{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <button-choices>
+    <input type="button" onclick="location.href='{{ url_for('log.showlog') }}';" value="Show log">
+    <input type="button" onclick="location.href='{{ url_for('log.getlog') }}';" value="Get log">
+    <input type="button" onclick="location.href='{{ url_for('deploy.index') }}';" value="Back">
+  </button-choices>
+{% endblock %}

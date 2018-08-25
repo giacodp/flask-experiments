@@ -1,0 +1,4 @@
+include repodeploy/schema.sql
+graft repodeploy/static
+graft repodeploy/templates
+global-exclude *.pyc
