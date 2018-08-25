@@ -1,3 +1,3 @@
-from flaskr import create_app
+from repodeploy import create_app
 app = create_app()
-app.run(debug=True, port='1982')
+app.run(debug=True, host='0.0.0.0', port='1982')

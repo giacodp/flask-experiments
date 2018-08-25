@@ -1,8 +1,7 @@
 from flask import (
-    Blueprint, flash, redirect, render_template, request, url_for, send_file
+    Blueprint, render_template, send_file
 )
-from flaskr.auth import login_required
-import logging
+from repodeploy.auth import login_required
 import logging.handlers
 from config import DT
 

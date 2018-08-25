@@ -2,11 +2,10 @@ import subprocess
 from flask import (
     Blueprint, flash, redirect, render_template, request, url_for
 )
-from werkzeug.exceptions import abort
 
-from flaskr.auth import login_required
+from repodeploy.auth import login_required
 
-bp = Blueprint('deploy', __name__, url_prefix='/deploy')
+bp = Blueprint('deploy', __name__)
 
 @bp.route('/', methods=('GET', 'POST'))
 @login_required
@@ -27,8 +26,8 @@ def index():
         if error is not None:
             flash(error)
         else:
-            # TODO: capire come cambiare login con LDAP
-            subprocess.call(['bash', 'flaskr/deploy.sh', bbrepo, ghrepo, branch])
+            # TODO: see how to implement LDAP authentication, e.g. https://github.com/admiralobvious/flask-simpleldap, https://code.tutsplus.com/tutorials/flask-authentication-with-ldap--cms-23101
+            subprocess.call(['bash', 'repodeploy/deploy.sh', bbrepo, ghrepo, branch])
             return redirect(url_for('log.index'))
 
     return render_template('deploy/index.html')

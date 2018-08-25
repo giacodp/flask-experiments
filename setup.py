@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='flaskr',
+    name='repodeploy',
     version='1.0.0',
     author='Giacomo Di Prinzio',
     packages=find_packages(),
