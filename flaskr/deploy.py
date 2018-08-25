@@ -1,6 +1,6 @@
-import os
+import subprocess
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
+    Blueprint, flash, redirect, render_template, request, url_for
 )
 from werkzeug.exceptions import abort
 
@@ -27,11 +27,8 @@ def index():
         if error is not None:
             flash(error)
         else:
-            # TODO: verificare path di deploy.sh
-            # TODO: vedere come far passare variabili python come parametri UNIX
-            # TODO: cambiare pulsante DONE
-            # TODO: vedere come leggere log di deploy.sh in html
-            os.system('./deploy.sh bbrepo ghrepo branch')
-            return redirect(url_for('blog.index'))
+            # TODO: capire come cambiare login con LDAP
+            subprocess.call(['bash', 'flaskr/deploy.sh', bbrepo, ghrepo, branch])
+            return redirect(url_for('log.index'))
 
     return render_template('deploy/index.html')

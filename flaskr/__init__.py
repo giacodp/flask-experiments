@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask#, send_file
 
 
 def create_app(test_config=None):
@@ -46,6 +46,16 @@ def create_app(test_config=None):
 
     from . import deploy
     app.register_blueprint(deploy.bp)
-    #app.add_url_rule('/', endpoint='index')
+
+    #import logging
+    #logging.basicConfig(filename='logging.log', level=logging.INFO)
+    #@app.route('/log-temp')
+    #def show_log():
+    #    with open("logging.log", "r") as logfile:
+    #        return send_file('../logging.log', attachment_filename='logging.log', as_attachment=False)
+    #    return render_template('log.html')
+
+    from . import log
+    app.register_blueprint(log.bp)
 
     return app

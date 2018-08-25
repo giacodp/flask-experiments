@@ -12,10 +12,6 @@
     <input name="github-repository" id="github-repository" required>
     <label for="bitbucket-branch">Bitbucket Branch (default: master)</label>
     <input name="bitbucket-branch" id="bitbucket-branch">
-    <input type="submit" value="Done">
-  </form>
-  <hr>
-  <form method="post">
-    <input class="danger" type="submit" value="Back" onclick="return confirm('Are you sure?');">
+    <input type="submit" value="Done" onclick="return confirm('Are you sure? \nCheck your input on the left.');">
   </form>
 {% endblock %}
